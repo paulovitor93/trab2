@@ -63,10 +63,11 @@ def type_token_ratio(text):
     for sentence in text:
         words = sentence.split()
         for word in words:
-            if word in dif_words:
+            clean_word = clean_up(word)
+            if clean_word in dif_words:
                 count += 1
             else:
-                dif_words.append(word)
+                dif_words.append(clean_word)
                 count += 1
     
     return len(dif_words)/count
