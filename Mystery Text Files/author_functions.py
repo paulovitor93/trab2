@@ -57,7 +57,19 @@ def type_token_ratio(text):
     """
   
     # To do: Fill in this function's body to meet its specification.
+    count = 0
+    dif_words = []
     
+    for sentence in text:
+        words = sentence.split()
+        for word in words:
+            if word in dif_words:
+                count += 1
+            else:
+                dif_words.append(word)
+                count += 1
+    
+    return len(dif_words)/count
                 
 def hapax_legomena_ratio(text):
     """ (list of str) -> float
