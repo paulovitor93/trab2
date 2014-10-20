@@ -62,6 +62,9 @@ def type_token_ratio(text):
         'James Gosling\n']
     >>> type_token_ratio(text)
     0.8888888888888888
+    >>> text = ['William Shakespeare\n', 'Paulo!!!, Paulo will and maria, Pedro and Maria\n']
+    >>> type_token_ratio(text)
+    0.7
     """
   
     # To do: Fill in this function's body to meet its specification.
