@@ -104,8 +104,8 @@ def hapax_legomena_ratio(text):
     repeated_words = []    
     for sentence in text:
         words = sentence.split()
-        for word in range(len(words)):
-            clean_words.append(clean_up(words[word]))
+        for word in words:
+            clean_words.append(clean_up(word))
             total_words +=1
     
     for i in range(len(clean_words)):
