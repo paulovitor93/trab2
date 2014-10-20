@@ -35,10 +35,18 @@ def avg_word_length(text):
     >>> text = ['William Shakespeare\n', 'Paulo!!!, Pedro and Maria\n']
     6.0
     """
-    a = clean_up(text)
-    return a
     # To do: Fill in this function's body to meet its specification.
+    count = 0
+    len_words = []
     
+    for sentence in text:
+        words = sentence.split()
+        for word in words:
+            clean_word = clean_up(word)
+            len_words.append(len(clean_word))
+            count += 1
+    
+    return sum(len_words)/count
     
 
 def type_token_ratio(text):
