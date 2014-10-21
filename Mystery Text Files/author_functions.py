@@ -128,8 +128,16 @@ def split_on_separators(original, separators):
     # To do: fill in this function's body to meet its specification.
     # You are not required to keep the two lines below but you may find
     # them helpful. (Hint)
-    result = [original]
-    return result
+    
+    stack = [original]
+    for char in separators:
+        pieces = []
+        for substr in stack:
+            pieces.extend(substr.split(char))
+        stack = pieces
+    return stack
+    #result = [original]
+    #return result
                 
     
 def avg_sentence_length(text):
