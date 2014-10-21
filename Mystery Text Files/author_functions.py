@@ -159,6 +159,41 @@ def avg_sentence_length(text):
     >>> avg_sentence_length(text)
     17.5
     """
+    all_sentences = ""
+    clean_sentences = []
+    sentences_sizes = []
+    count_sentences = 0
+    
+    #adicionando cada index de text em uma string unica
+    for sentence in text:
+        all_sentences += sentence + " "
+    
+    #pego a string unica criada e separo usando a função, nesse caso, criando duas sentenças
+    sentences = split_on_separators(all_sentences, "!?.")
+    
+    #aqui pego as duas sentenças e trabalho cada uma em separado
+    for i in range(len(sentences)-1):
+        sentence = sentences[i].split()
+        all_sentence = []
+        #cada palavra dentro da sentença, eu limpo e crio uma sentença limpa, sem virgula interna nem nada
+        for word in sentence:
+            all_sentence.append(clean_up(word))
+        
+        #junto a list criada com cada palavra em um string só separando por virgula
+        cleaned_list = " ".join(all_sentence)
+        #adiciono a string criada acima na lista clean_sentences.
+        clean_sentences.append(cleaned_list)
+    
+    #pego as sentenças já limpas e trabalho uma a uma...
+    #conto o número de senteças que eu entro, dou um split na string (obs: o slip já se livra dos multiplos spaços.)
+    #adiciono todos os sized numa lista.
+    for sentence in clean_sentences:
+        count_sentences += 1
+        words = sentence.split()
+        sentences_sizes.append(len(words))
+    
+    #soma de todos os sizes, dividio pelo numero de sentenças que eu entrei em cima.
+    return sum(sentences_sizes)/count_sentences
     
     # To do: Fill in this function's body to meet its specification.
     
