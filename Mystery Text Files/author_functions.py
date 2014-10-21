@@ -123,6 +123,8 @@ def split_on_separators(original, separators):
 
     >>> split_on_separators("Hooray! Finally, we're done.", "!,")
     ['Hooray', ' Finally', " we're done."]
+    >>> split_on_separators("Hi, how are you? Fine, thanks.", ",?")
+    ['Hi', 'how are you', 'Fine', 'thanks' ]
     """
     
     # To do: fill in this function's body to meet its specification.
