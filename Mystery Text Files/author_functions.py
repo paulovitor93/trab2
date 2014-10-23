@@ -217,9 +217,39 @@ def avg_sentence_complexity(text):
          'and whether pigs have wings.\n']
     >>> avg_sentence_complexity(text)
     3.5
-    """
-    
+      text = ['Lorem ipsum dolor sit amet, consectetur adipisicing elit. \n',
+          'Voluptatum, labore, maiores debitis laboriosam; \n',
+          'voluptatem alias! id quaerat eligendi saepe voluptas aliquam \n',
+          'reprehenderit inventore enim. Molestiae expedita sunt \n',
+          'voluptas harum odit!']
+    >>> avg_sentence_length(text)
+    2.0
+    """ 
     # To do: Fill in this function's body to meet its specification.
+    
+    all_sentences = ""
+    final_puctuation = "!?."
+    phrase_punctuation = ",;:"
+    phrases_count = []
+    phrase = 0
+    
+    #junta td em uma so frase
+    for sentence in text:
+        all_sentences += sentence + " "
+    
+    #separa para definir quantas sentencas tem na frase
+    #separacao pelo final_puctuation = "!?."
+    sentences = split_on_separators(all_sentences, final_puctuation)
+    
+    #pega cada frase e separa as sentencas, define quantas sentencas tem naquela frase
+    #e joga esse numero para uma lista
+    for phrases in range(len(sentences)-1):
+        phrase = len(split_on_separators(sentences[phrases], phrase_punctuation))
+        phrases_count.append(phrase)
+    
+    #faz o calculo
+    #ps: len(sentence) -1 pq vai ter uma lista vazia a final na lista
+    return sum(phrases_count)/(len(sentences)-1)
     
     
 def compare_signatures(sig1, sig2, weight):
