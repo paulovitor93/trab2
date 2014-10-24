@@ -281,3 +281,12 @@ def compare_signatures(sig1, sig2, weight):
     """
     
     # To do: Fill in this function's body to meet its specification.
+    compare_results = [0]
+    
+    compare_results.append(abs(sig1[1]-sig2[1])*11)
+    compare_results.append(abs(sig1[2]-sig2[2])*33)
+    compare_results.append(abs(sig1[3]-sig2[3])*50)
+    compare_results.append(abs(sig1[4]-sig2[4])*0.4)
+    compare_results.append(abs(sig1[5]-sig2[5])*4)
+    
+    return sum(compare_results)
