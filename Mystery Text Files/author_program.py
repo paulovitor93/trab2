@@ -12,14 +12,15 @@ def get_valid_filename(msg):
     # To do: fill in this function's body to meet its specification.
     
     # Uncomment and use this statement as many times as needed for input:
-    # filename = input(msg)
-
-    # Uncomment and use this statement as many times as needed for output:
-    # print("That file does not exist.")
-    
+    filename = input(msg)
+    flag = os.path.exists(filename)
+    while(flag == False):
+        # Uncomment and use this statement as many times as needed for output:
+        print("That file does not exist.")
+        mystery_filename = get_valid_filename(prompt)
+        return mystery_filename
     # Besides what is given above, do not use print or input anywhere else
     # in this function.
-
     return filename
     
     
@@ -35,10 +36,14 @@ def get_valid_directory_name(msg):
     # To do: fill in this function's body to meet its specification.
     
     # Uncomment and use this statement as many times as needed for input:
-    # dirname = input(msg)
+    dirname = input(msg)
+    flag = os.path.isdir(dirname)
+    while(flag == False):
 
-    # Uncomment and use this statement as many times as needed for output:
-    # print("That directory does not exist.")
+        # Uncomment and use this statement as many times as needed for output:
+        print("That directory does not exist.")
+        dir_name = get_valid_directory_name(prompt)
+        return dir_name
 
     # Besides what is given above, do not use print or input anywhere else
     # in this function.
