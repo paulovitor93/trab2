@@ -108,14 +108,17 @@ def hapax_legomena_ratio(text):
             clean_words.append(clean_up(word))
             total_words +=1
     clean_words.sort()
-    #comparing all the words to find which one appear more than once
+  #comparing all the words to find which one appear more than once
     for i in range(len(clean_words)):
+        #print(i)
         if(i != len(clean_words)-1):
-            if(clean_words[i] == clean_words[i+1]):
+            if(clean_words[i] == clean_words[i+1] or clean_words[i] == repeated_words[-1]):
                 repeated_words.append(clean_words[i])
        
-            
-    return (((len(repeated_words)*2)-total_words) / total_words)
+   
+    unique_words = total_words - (len(repeated_words)-1)
+    
+    return (unique_words / total_words)
 
 def split_on_separators(original, separators):
     """ (str, str) -> list of str
